@@ -14,7 +14,7 @@ module "scz-low_us-west-2_inspection_vpc" {
   subnet_size_bits     = 3
   vpc_name             = "inspection_vpc"
 #  transit_gateway_id   = data.consul_keys.tgw_1.var.id
-  transit_gateway_id   = "tgw-0b65c73cb765fa101"
+  transit_gateway_id   = "tgw-068f719e7cd51e9f5"
 
   cost_tracking_tags   = {
     BusinessDepartment = "Technology"

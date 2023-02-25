@@ -1,19 +1,29 @@
-variable "scz-low_super_cidr_block" {
+variable "super_cidr_block" {
   type    = string
   default = "10.101.0.0/16"
 }
 
+variable "security_zone" {
+  description = "Level of the Security Zone, example: scz-low, scz-high"
+  type = string
+}
+
+variable "region" {
+  description = "The region for this VPC"
+  type        = string
+}
+
 locals {
   // The 1st /20 in 10.10x.0.0/16
-#  scz-low_edge_vpc_cidr = cidrsubnet(var.scz-low_super_cidr_block, 4, 0)
+#  edge_vpc_cidr = cidrsubnet(var.super_cidr_block, 4, 0)
   // The 2nd /20 in 10.10x.0.0/16
-#  scz-low_shared-svcs_vpc_cidr = cidrsubnet(var.scz-low_super_cidr_block, 4, 1)
+#  shared-svcs_vpc_cidr = cidrsubnet(var.super_cidr_block, 4, 1)
   // The 3rd /20 in 10.10x.0.0/16
-  scz-low_spoke_vpc_a_cidr    = cidrsubnet(var.scz-low_super_cidr_block, 4, 2)
+  spoke_vpc_a_cidr    = cidrsubnet(var.super_cidr_block, 4, 2)
   // The 4th /20 in 10.10x.0.0/16
-  scz-low_spoke_vpc_b_cidr    = cidrsubnet(var.scz-low_super_cidr_block, 4, 3)
-#  scz-low_inspection_vpc_cidr    = cidrsubnet(var.scz-low_super_cidr_block, 8, 253)
-#  scz-low_ctrl_pln_vpc_cidr = cidrsubnet(var.scz-low_super_cidr_block, 8, 254)
+  spoke_vpc_b_cidr    = cidrsubnet(var.super_cidr_block, 4, 3)
+#  inspection_vpc_cidr    = cidrsubnet(var.super_cidr_block, 8, 253)
+#  ctrl_pln_vpc_cidr = cidrsubnet(var.super_cidr_block, 8, 254)
 }
 
 variable "tags" {

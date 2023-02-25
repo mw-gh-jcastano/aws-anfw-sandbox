@@ -7,7 +7,7 @@ module "network_firewall" {
 
   anfw_enabled = var.anfw_enabled
   #  anfw_number   = "1"
-  vpc_id       = "vpc-0b405c7cd9ac90cf0"
+  vpc_id       = "vpc-06a7aa5e9d484847c"
   vpc_name     = "inspection"
   account_name = "John-Castano"
   region       = "us-west-2"
@@ -15,7 +15,7 @@ module "network_firewall" {
   // Tech-Debt:  Programatically fetching the Firewall subnet ID's has not been a problem, having this main.tf ANFW calling TFE code to accept this
   // has been an issue.  This tech debt of harding the firewall subnets is known and accepted for remediation at a later date.
   subnet_mapping = [
-    "subnet-0db81915e40c851e9", "subnet-04222c644a7ef886a", "subnet-0db917f0345dc85d4"
+    "subnet-043e6a43a2eb5055d", "subnet-0fedccc23f290d9e9", "subnet-0b368f0901476c0fe"
   ]
 
   fivetuple_stateful_rule_group = [

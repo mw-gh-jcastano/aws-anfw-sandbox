@@ -1,4 +1,4 @@
-module "scz-low_us-east-2_inspection_vpc" {
+module "inspection_vpc" {
   source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc"
 #  version              = "> 0"
 
@@ -14,7 +14,7 @@ module "scz-low_us-east-2_inspection_vpc" {
   subnet_size_bits     = 3
   vpc_name             = "inspection_vpc"
 #  transit_gateway_id   = data.consul_keys.tgw_1.var.id
-  transit_gateway_id   = "tgw-05875bce36f5120a1"
+  transit_gateway_id   = "tgw-03a68107d7780decc"
 
   cost_tracking_tags   = {
     BusinessDepartment = "Technology"
