@@ -3,5 +3,5 @@
 #}
 
 output "scz-low_tgw-id" {
-  value = aws_ec2_transit_gateway.ctrl_pln_tgw.id
+  value = aws_ec2_transit_gateway.transit-gateway.id
 }

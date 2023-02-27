@@ -4,8 +4,8 @@ resource "aws_vpc" "shared-svcs_vpc" {
 
   tags             = merge(var.tags,
     {
-      Name = format("%s-%s-shared-services-vpc", var.security_zone, var.region)
-#      Name         = "shared-svcs_vpc"
+#      Name = format("%s-%s-shared-services-vpc", var.security_zone, var.region)
+      Name = format("%s-%s-shared-services-vpc", local.security_zone, local.region)
     },
   )
 }
@@ -20,7 +20,8 @@ resource "aws_subnet" "shared-svcs_vpc_protected_subnet" {
 
   tags         = merge(var.tags,
     {
-      Name = format("%s-%s-shared-services-vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", var.security_zone, var.region)
+#      Name = format("%s-%s-shared-services-vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", var.security_zone, var.region)
+      Name = format("%s-%s-shared-services-vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", local.security_zone, local.region)
     },
   )
 }
@@ -45,7 +46,8 @@ resource "aws_route_table" "shared-svcs_vpc_protected_subnet_route_table" {
 
   tags         = merge(var.tags,
     {
-      Name = format("%s-%s-shared-services_vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet-route-table", var.security_zone, var.region)
+#      Name = format("%s-%s-shared-services_vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet-route-table", var.security_zone, var.region)
+      Name = format("%s-%s-shared-services_vpc/${data.aws_availability_zones.available.names[count.index]}/protected-subnet-route-table", local.security_zone, local.region)
     },
   )
 }

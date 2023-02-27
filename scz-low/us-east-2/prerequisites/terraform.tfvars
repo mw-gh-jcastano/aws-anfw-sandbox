@@ -4,5 +4,5 @@ tags = {
   Owner      = "John Castano"
 }
 
-security_zone = "scz_low"
-region = "us-east-2"
+#security_zone = "scz_low"
+#region = "us-east-2"

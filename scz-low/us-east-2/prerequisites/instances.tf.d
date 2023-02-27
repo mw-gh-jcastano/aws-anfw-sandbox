@@ -8,8 +8,8 @@ resource "aws_instance" "spoke_vpc_a_host" {
 
   tags          = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a/host", var.security_zone, var.region)
-#      Name = "spoke-vpc-a/host"
+#      Name = format("%s-%s-spoke-vpc-a/host", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a/host", local.security_zone, local.region)
     },
   )
   user_data = file("install-nginx.sh")
@@ -24,8 +24,8 @@ resource "aws_instance" "spoke_vpc_b_host" {
   vpc_security_group_ids = [aws_security_group.spoke_vpc_b_host_sg.id]
   tags          = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-b/host", var.security_zone, var.region)
-#      Name = "spoke-vpc-b/host"
+#      Name = format("%s-%s-spoke-vpc-b/host", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-b/host", local.security_zone, local.region)
     },
   )
   user_data = file("install-nginx.sh")
@@ -40,7 +40,8 @@ resource "aws_instance" "spoke_vpc_b_host" {
 #  vpc_security_group_ids = [aws_security_group.shared-svcs_vpc_host_sg.id]
 #  tags          = merge(var.tags,
 #    {
-#      Name = format("%s-%s-shared-services-vpc/host", var.security_zone, var.region)
+##      Name = format("%s-%s-shared-services-vpc/host", var.security_zone, var.region)
+#      Name = format("%s-%s-shared-services-vpc/host", local.security_zone, local.region)
 ##      Name = "shared-svcs-vpc/host"
 #    },
 #  )

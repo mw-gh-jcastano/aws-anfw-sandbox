@@ -4,9 +4,10 @@ resource "aws_vpc" "spoke_vpc_a" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  tags         = merge(var.tags,
+  tags     = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a", var.security_zone, var.region)
+#      Name = format("%s-%s-spoke-vpc-a", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a", local.security_zone, local.region)
     },
   )
 }
@@ -18,9 +19,10 @@ resource "aws_subnet" "spoke_vpc_a_protected_subnet" {
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   cidr_block              = cidrsubnet(local.spoke_vpc_a_cidr, 4, 0 + count.index)
 
-  tags         = merge(var.tags,
+  tags     = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", var.security_zone, var.region)
+#      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/protected-subnet", local.security_zone, local.region)
     },
   )
 }
@@ -32,9 +34,10 @@ resource "aws_subnet" "spoke_vpc_a_endpoint_subnet" {
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   cidr_block              = cidrsubnet(local.spoke_vpc_a_cidr, 8, 64 + count.index)
 
-  tags         = merge(var.tags,
+  tags     = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/endpoint-subnet", var.security_zone, var.region)
+#      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/endpoint-subnet", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a/${data.aws_availability_zones.available.names[count.index]}/endpoint-subnet", local.security_zone, local.region)
     },
   )
 }
@@ -48,9 +51,10 @@ resource "aws_route_table" "spoke_vpc_a_route_table" {
 #    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
 #  }
 
-  tags         = merge(var.tags,
+  tags     = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a/route-table", var.security_zone, var.region)
+#      Name = format("%s-%s-spoke-vpc-a/route-table", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a/route-table", local.security_zone, local.region)
     },
   )
 }

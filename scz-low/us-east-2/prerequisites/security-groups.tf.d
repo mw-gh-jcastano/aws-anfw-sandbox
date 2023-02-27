@@ -14,7 +14,8 @@ resource "aws_security_group" "spoke_vpc_a_endpoint_sg" {
 
   tags          = merge(var.tags,
     {
-      Name = format("%s-%s-spoke-vpc-a/sg-ssm-ec2-endpoints", var.security_zone, var.region)
+#      Name = format("%s-%s-spoke-vpc-a/sg-ssm-ec2-endpoints", var.security_zone, var.region)
+      Name = format("%s-%s-spoke-vpc-a/sg-ssm-ec2-endpoints", local.security_zone, local.region)
     },
   )
 }
@@ -42,7 +43,8 @@ resource "aws_security_group" "spoke_vpc_a_host_sg" {
 
   tags          = merge(var.tags,
     {
-      Name      = format("%s-%s-spoke-vpc-a/sg-host", var.security_zone, var.region)
+#      Name      = format("%s-%s-spoke-vpc-a/sg-host", var.security_zone, var.region)
+      Name      = format("%s-%s-spoke-vpc-a/sg-host", local.security_zone, local.region)
     },
   )
 }
@@ -68,7 +70,8 @@ resource "aws_security_group" "spoke_vpc_b_host_sg" {
 
   tags          = merge(var.tags,
     {
-      Name      = format("%s-%s-spoke-vpc-b/sg-host", var.security_zone, var.region)
+#      Name      = format("%s-%s-spoke-vpc-b/sg-host", var.security_zone, var.region)
+      Name      = format("%s-%s-spoke-vpc-b/sg-host", local.security_zone, local.region)
     },
   )
 }
@@ -88,7 +91,8 @@ resource "aws_security_group" "spoke_vpc_b_endpoint_sg" {
 
   tags          = merge(var.tags,
     {
-      Name      = format("%s-%s-spoke-vpc-b/sg-ssm-ec2-endpoints", var.security_zone, var.region)
+#      Name      = format("%s-%s-spoke-vpc-b/sg-ssm-ec2-endpoints", var.security_zone, var.region)
+      Name      = format("%s-%s-spoke-vpc-b/sg-ssm-ec2-endpoints", local.security_zone, local.region)
     },
   )
 }
@@ -117,8 +121,8 @@ resource "aws_security_group" "spoke_vpc_b_endpoint_sg" {
 #
 #  tags          = merge(var.tags,
 #    {
-#       Name      = format("%s-%s-shared-services-vpc/sg-host", var.security_zone, var.region)
-##      Name      = "shared-svcs-vpc/sg-host"
+##       Name      = format("%s-%s-shared-services-vpc/sg-host", var.security_zone, var.region)
+#       Name      = format("%s-%s-shared-services-vpc/sg-host", local.security_zone, local.region)
 #    },
 #  )
 #}

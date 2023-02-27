@@ -6,7 +6,8 @@ resource "aws_vpc" "edge_vpc" {
 
   tags         = merge(var.tags,
     {
-      Name = format("%s-%s-edge-vpc", var.security_zone, var.region)
+#      Name = format("%s-%s-edge-vpc", var.security_zone, var.region)
+      Name = format("%s-%s-edge-vpc", local.security_zone, local.region)
     },
   )
 }
@@ -21,7 +22,8 @@ resource "aws_subnet" "edge_vpc_public_subnet" {
 
   tags                    = merge(var.tags,
     {
-      Name                = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet", var.security_zone, var.region)
+#      Name                = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet", var.security_zone, var.region)
+      Name                = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet", local.security_zone, local.region)
     },
   )
 }
@@ -43,7 +45,8 @@ resource "aws_route_table" "edge_vpc_public_subnet_route_table" {
 
   tags         = merge(var.tags,
     {
-      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet-route-table", var.security_zone, var.region)
+#      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet-route-table", var.security_zone, var.region)
+      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/public-subnet-route-table", local.security_zone, local.region)
     },
   )
 }
@@ -59,7 +62,8 @@ resource "aws_internet_gateway" "edge_vpc_igw" {
 
   tags       = merge(var.tags,
     {
-      Name = format("%s-%s-edge-vpc/internet-gateway", var.security_zone, var.region)
+#      Name = format("%s-%s-edge-vpc/internet-gateway", var.security_zone, var.region)
+      Name = format("%s-%s-edge-vpc/internet-gateway", local.security_zone, local.region)
     },
   )
 }
@@ -76,7 +80,8 @@ resource "aws_nat_gateway" "edge_vpc_nat_gw" {
 
   tags       = merge(var.tags,
     {
-      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/nat-gateway", var.security_zone, var.region)
+#      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/nat-gateway", var.security_zone, var.region)
+      Name = format("%s-%s-edge-vpc/${data.aws_availability_zones.available.names[count.index]}/nat-gateway", local.security_zone, local.region)
     },
   )
 }
