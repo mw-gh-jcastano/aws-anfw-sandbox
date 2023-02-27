@@ -14,7 +14,7 @@ module "inspection_vpc" {
   subnet_size_bits     = 3
   vpc_name             = "inspection_vpc"
 #  transit_gateway_id   = data.consul_keys.tgw_1.var.id
-  transit_gateway_id   = "tgw-03a68107d7780decc"
+  transit_gateway_id   = "tgw-0eee82a577dcc4a5c"
 
   cost_tracking_tags   = {
     BusinessDepartment = "Technology"
