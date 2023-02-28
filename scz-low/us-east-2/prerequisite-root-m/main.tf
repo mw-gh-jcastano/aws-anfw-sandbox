@@ -12,8 +12,6 @@ module "prerequisites" {
 
   security_zone        = "scz_low"
   region               = "us-east-2"
-  spoke_vpc_a_cidr     = ""
-  spoke_vpc_b_cidr     = ""
 
   super_cidr_block = "10.101.0.0/16"
 //The 1st /20 in 10.10x.0.0/16
