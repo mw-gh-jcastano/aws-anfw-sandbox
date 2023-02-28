@@ -19,9 +19,9 @@ module "prerequisites" {
   // The 2nd /20 in 10.10x.0.0/16
 #  shared-svcs_vpc_cidr = cidrsubnet(local.super_cidr_block, 4, 1)
   // The 3rd /20 in 10.10x.0.0/16
-  spoke_vpc_a_cidr    = cidrsubnet(local.super_cidr_block, 4, 2)
+#  spoke_vpc_a_cidr    = cidrsubnet(module.prerequisites.super_cidr_block, 4, 2)
   // The 4th /20 in 10.10x.0.0/16
-  spoke_vpc_b_cidr    = cidrsubnet(local.super_cidr_block, 4, 3)
+#  spoke_vpc_b_cidr    = cidrsubnet(module.prerequisites.super_cidr_block, 4, 3)
 #  inspection_vpc_cidr    = cidrsubnet(local.super_cidr_block, 8, 253)
 #  ctrl_pln_vpc_cidr = cidrsubnet(local.super_cidr_block, 8, 254)
 
