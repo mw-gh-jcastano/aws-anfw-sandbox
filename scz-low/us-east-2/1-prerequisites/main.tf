@@ -1,5 +1,5 @@
 module "prerequisites" {
-  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/prerequisites?ref=castano-prerequisite-source-module"
+  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/prerequisites?ref=castano-dev-routing"
   #  version              = "> 0"
 
   #  cloud_logs_enabled   = true
@@ -8,6 +8,9 @@ module "prerequisites" {
   security_zone = "scz_low"
   region        = "us-east-2"
   super_cidr_block = "10.101.0.0/16"
+
+#   key_name =  "${file("tf_key.pem")}"
+   key_name =  module.prerequisites.ec2_keyname
 
   cost_tracking_tags = {
     BusinessDepartment = "Technology"
