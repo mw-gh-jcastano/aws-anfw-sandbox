@@ -11,6 +11,7 @@ module "prerequisites" {
 
 #   key_name =  "${file("tf_key.pem")}"
    key_name =  module.prerequisites.ec2_keyname
+#   my_public_ip_addr = local.ifconfig_co_json.ip
 
   cost_tracking_tags = {
     BusinessDepartment = "Technology"
