@@ -5,3 +5,7 @@ output "inspection_vpc_id" {
 output "firewall_subnets" {
   value = module.inspection_vpc.firewall_cidr_block
 }
+
+output "firewall_subnets_id" {
+  value = module.inspection_vpc.firewall_subnets_id
+}
