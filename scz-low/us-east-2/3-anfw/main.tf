@@ -2,7 +2,7 @@
 ## AWS Network Firewall (ANFW) Creation
 #########################################################################################
 module "network_firewall" {
-  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/network_firewall"
+  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/network_firewall?ref=castano-dev-routing"
   #  version = "0.0.1"
 
   anfw_enabled = var.anfw_enabled
@@ -75,3 +75,23 @@ module "network_firewall" {
     Terraform          = "True"
   }
 }
+
+########################################################################################
+//BEGIN NETWORK ANFW RESOURCES
+########################################################################################
+#resource "aws_route" "inspection_vpc_tgw_rt_route" {
+##  count                  = length(module.inspection_vpc.private_route_table_ids)
+#  count                  = length(data.terraform_remote_state.inspection_vpc_tfstate.outputs.inspection_vpc_tgw_att_subnet_route_table_ids)
+##  route_table_id         = element(module.inspection_vpc.private_route_table_ids, count.index)
+##  route_table_id         = element(data.terraform_remote_state.inspection_vpc_tfstate.inspection_vpc_tgw_att_subnet_route_table_ids, count.index)
+#  route_table_id         = element(data.terraform_remote_state.inspection_vpc_tfstate.outputs.inspection_vpc_tgw_att_subnet_route_table_ids, count.index)
+##  vpc_endpoint_id        = (aws_networkfirewall_firewall.nfw.firewall_status[0].sync_states[*].attachment[0].endpoint_id)[count.index]
+##  vpc_endpoint_id        = (module.network_firewall.firewall_status[0].sync_states[*].attachment[0].endpoint_id)[count.index]
+#  vpc_endpoint_id        = module.network_firewall.firewall.
+#  destination_cidr_block = "0.0.0.0/0"
+#
+#  depends_on = [
+###    aws_networkfirewall_firewall.nfw
+#    module.network_firewall
+#  ]
+#}

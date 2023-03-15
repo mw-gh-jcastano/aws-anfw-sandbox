@@ -9,3 +9,7 @@ output "firewall_subnets" {
 output "firewall_subnets_id" {
   value = module.inspection_vpc.firewall_subnets_id
 }
+
+output "inspection_vpc_tgw_att_subnet_route_table_ids" {
+  value = module.inspection_vpc.inspection_vpc_tgw_att_subnet_route_table_ids
+}
