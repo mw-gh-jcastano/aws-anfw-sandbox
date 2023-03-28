@@ -2,7 +2,8 @@
 ## AWS Network Firewall (ANFW) Creation
 #########################################################################################
 module "network_firewall" {
-  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/network_firewall?ref=castano-dev-routing"
+#  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/network_firewall"
+  source = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/network_firewall?ref=source-module-routing"
   #  version = "0.0.1"
 
   anfw_enabled = var.anfw_enabled
