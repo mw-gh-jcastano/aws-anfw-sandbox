@@ -2,7 +2,6 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-
 data "terraform_remote_state" "inspection_vpc_tfstate" {
   backend = "s3"
 
