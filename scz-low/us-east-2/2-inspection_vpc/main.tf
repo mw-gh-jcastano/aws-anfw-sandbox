@@ -1,5 +1,6 @@
 module "inspection_vpc" {
-  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc?ref=castano-dev-routing"
+#  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc"
+  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc?ref=source-module-routing"
   #  version                           = "> 0"
 
   cloud_logs_enabled                   = true
@@ -15,16 +16,14 @@ module "inspection_vpc" {
   subnet_size_bits                     = 4
   vpc_name                             = "inspection_vpc"
   #  transit_gateway_id                 = data.consul_keys.tgw_1.var.id
-  transit_gateway_id                   = "tgw-0ac31871d992ce04f"
+  transit_gateway_id                   = "tgw-010844553d97cebe4"
 
 // TECH-DEBT BEGIN: PROGRAMATICALLY FETCH VALUES FROM PREREQUISITES OUTPUTS
-#  transit_gateway_workload_attachments = "tgw-attach-0746b7e8255207f48"
-
   spoke_vpc_a_cidr                     = "10.101.32.0/20"
-  tgw_attachment_spoke_vpc_a           = "tgw-attach-00930a28c87e94dc3"
+  tgw_attachment_spoke_vpc_a           = "tgw-attach-0dab3da41ddcab1a9"
 
   spoke_vpc_b_cidr                     = "10.101.48.0/20"
-  tgw_attachment_spoke_vpc_b           = "tgw-attach-0df2cc9a7f9ae033b"
+  tgw_attachment_spoke_vpc_b           = "tgw-attach-0b2571b99bb9ad464"
 // TECH-DEBT END: PROGRAMATCIALLY FETCH VALUES FROM PREREQUISITES OUTPUTS
 
   cost_tracking_tags      = {
