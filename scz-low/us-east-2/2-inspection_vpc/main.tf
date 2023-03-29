@@ -1,6 +1,6 @@
 module "inspection_vpc" {
 #  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc"
-  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc?source-module-routing"
+  source                               = "git::ssh://github.com:/mw-gh-jcastano/aws-anfw-module.git//modules/inspection_vpc?ref=source-module-routing"
   #  version                           = "> 0"
 
   cloud_logs_enabled                   = true
