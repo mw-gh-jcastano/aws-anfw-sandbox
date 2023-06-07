@@ -11,7 +11,7 @@ module "prerequisites" {
 
   key_name = module.prerequisites.ec2_keyname
 
-  ec2_enabled = true
+  ec2_enabled = false
 
   #  shared_svcs_enabled = false
   #  az_ids = "us-east-1a"
